@@ -6,6 +6,7 @@ class Marker
 {
     protected $latitude;
     protected $longitude;
+    protected $address;
     protected $meta = array();
 
     public function setColor($color)
@@ -30,6 +31,16 @@ class Marker
         if (array_key_exists('label', $this->meta)) {
             return $this->meta['label'];
         }
+    }
+
+    public function setAddress($address)
+    {
+        $this->address = (string)$address;
+    }
+
+    public function getAddress()
+    {
+        return $this->address;
     }
 
     public function setLatitude($latitude)

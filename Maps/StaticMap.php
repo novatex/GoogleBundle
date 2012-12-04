@@ -138,11 +138,15 @@ class StaticMap extends AbstractMap
                         $request .= $mkey.':'.$mval.'|';
                     }
                 }
-                if ($latitude = $marker->getLatitude()) {
-                    $request .= $latitude;
-                }
-                if ($longitude = $marker->getLongitude()) {
-                    $request .= ','.$longitude;
+                if(!empty($marker->getAddress())){
+                    $request .= urlencode($marker->getAddress());
+                }else{
+                    if ($latitude = $marker->getLatitude()) {
+                        $request .= $latitude;
+                    }
+                    if ($longitude = $marker->getLongitude()) {
+                        $request .= ',' . $longitude;
+                    }
                 }
             }	
         }
