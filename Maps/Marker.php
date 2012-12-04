@@ -40,7 +40,7 @@ class Marker
 
     public function getAddress()
     {
-        return $this->address;
+        return empty($this->address)?false:$this->address;
     }
 
     public function setLatitude($latitude)
